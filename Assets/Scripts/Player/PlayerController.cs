@@ -12,31 +12,54 @@ public class PlayerController : MonoBehaviour
 	[Range(0, 30), Tooltip("Speed Multiplier in the 'Y' Direction")]
 	public float VertSpeed;
 
-
 	private Rigidbody rb;
-
 
 	#endregion
 
 	#region Unity Functions
-
-	private void Awake()
-	{
-	}
-	
 	private void Start()
 	{
-       
+		rb = GetComponent<Rigidbody>();
 	}
-	
-	private void Update()
+
+	private void FixedUpdate()
 	{
-		transform.position += new Vector3 (Input.GetAxis("Horizontal")*HorizSpeed, Input.GetAxis("Vertical")*VertSpeed, 0)*Time.deltaTime;
+		SetHorizontalVelocity();
+		SetVerticalVelocity();
 	}
-	
+
 	#endregion
-	
+
 	#region My Functions
-	
+
+	/// <summary>
+	/// 
+	/// </summary>
+	private void SetHorizontalVelocity()
+	{
+		if(Input.GetAxis("Horizontal")!=0)
+		{
+			rb.velocity = new Vector3(Input.GetAxis("Horizontal")*HorizSpeed,rb.velocity.y,0);
+		}
+		else
+		{
+			rb.velocity = new Vector3(0, rb.velocity.y, 0);
+		}
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	private void SetVerticalVelocity()
+	{
+		if (Input.GetAxis("Vertical") != 0)
+		{
+			rb.velocity = new Vector3(rb.velocity.x, Input.GetAxis("Vertical") * VertSpeed, 0);
+		}
+		else
+		{
+			rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+		}
+	}
 	#endregion
 }
