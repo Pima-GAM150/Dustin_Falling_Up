@@ -1,5 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * 
+ * Camera follow a target 
+ * 
+ *		could be renamed to follow any obj
+ * 
+ */
+
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour

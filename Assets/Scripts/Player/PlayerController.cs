@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+ * 
+ * Velocity based player movement in "x" & "y" directions
+ * 
+ */
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
 	/// <summary>
 	/// 
+	/// Checks for 'a', 'd', 'left', or 'right'(arrows) input to get the direction of movement
+	/// 
 	/// </summary>
 	private void SetHorizontalVelocity()
 	{
@@ -49,6 +54,8 @@ public class PlayerController : MonoBehaviour
 
 	/// <summary>
 	/// 
+	/// Checks for 'w', 's', 'up', or 'down' (arrows) input to get the direction of movement
+	///  
 	/// </summary>
 	private void SetVerticalVelocity()
 	{
