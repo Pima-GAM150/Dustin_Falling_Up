@@ -22,7 +22,8 @@ public class GravityController : MonoBehaviour
 
 	[Range(0, 20), Tooltip("How fast the environment moves around you")]
 	public float DirChangeTime;
-
+	
+	[SerializeField,Tooltip("Direction of movement in world space as a vector")]
 	private Vector3 GravityVector;
 
 
@@ -38,23 +39,20 @@ public class GravityController : MonoBehaviour
 		}
 		else
 		{
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 	}
 
 	private void Start()
 	{
-		ChangeGravityDirecetion(GravDir);
-	}
+		GravityVector = ChangeGravityDirecetion(GravDir);
 
-	private void Update()
-	{
-		
+		PlayerController.Instance.SwitchTimerStart.AddListener(StartDirChangeTimer);
 	}
 
 	private void OnDestroy()
 	{
-		
+		PlayerController.Instance.SwitchTimerStart.RemoveListener(StartDirChangeTimer);
 	}
 	#endregion
 
@@ -62,7 +60,7 @@ public class GravityController : MonoBehaviour
 
 	/// <summary>
 	/// 
-	/// 
+	/// pics a random Dirrection for the gravitation vector
 	/// 
 	/// </summary>
 	public Vector3 ChangeGravityDirecetion(int num)
@@ -70,20 +68,28 @@ public class GravityController : MonoBehaviour
 		switch (num % 8)
 		{
 			case 0:
+				GravDir = GravityDirection.NORTH;
 				return new Vector3(0, 1, 0);
 			case 1:
+				GravDir = GravityDirection.NORTH_EAST;
 				return new Vector3(1, 1, 0);
 			case 2:
+				GravDir = GravityDirection.NORTH_WEST;
 				return new Vector3(-1, 1, 0);
 			case 3:
+				GravDir = GravityDirection.SOUTH;
 				return new Vector3(0, -1, 0);
 			case 4:
+				GravDir = GravityDirection.SOUTH_EAST;
 				return new Vector3(1, -1, 0);
 			case 5:
+				GravDir = GravityDirection.SOUTH_WEST;
 				return new Vector3(-1, -1, 0);
 			case 6:
+				GravDir = GravityDirection.WEST;
 				return new Vector3(-1, 0, 0);
 			case 7:
+				GravDir = GravityDirection.EAST;
 				return new Vector3(1, 0, 0);
 			default:
 				return Vector3.zero;
@@ -92,7 +98,7 @@ public class GravityController : MonoBehaviour
 
 	/// <summary>
 	/// 
-	/// 
+	/// switches to a specific Gravitation Vector
 	/// 
 	/// </summary>
 	/// <param name="dir"></param>
@@ -133,7 +139,7 @@ public class GravityController : MonoBehaviour
 		
 	/// <summary>
 	/// 
-	/// 
+	/// timer to set the gravity direction randomly 
 	/// 
 	/// </summary>
 	/// <param name="time"></param>

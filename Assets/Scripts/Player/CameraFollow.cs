@@ -38,7 +38,5 @@ public class CameraFollow : MonoBehaviour
 	
 	#region My Functions
 	
-	
-	
 	#endregion
 }
