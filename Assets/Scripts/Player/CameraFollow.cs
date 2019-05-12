@@ -27,7 +27,7 @@ public class CameraFollow : MonoBehaviour
     
 	private void FixedUpdate()
 	{
-		var position = Vector3.Lerp(transform.position, Target.position - new Vector3(0, 0, Z_Offset), Smoothing * Time.deltaTime);
+		var position = Vector3.Lerp(transform.position, Target.position - new Vector3(0, 0, Z_Offset), Smoothing);
 
 		transform.position = position;
 
@@ -37,8 +37,6 @@ public class CameraFollow : MonoBehaviour
 	#endregion
 	
 	#region My Functions
-	
-	
 	
 	#endregion
 }
