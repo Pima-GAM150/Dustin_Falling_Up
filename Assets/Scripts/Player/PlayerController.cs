@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 
 	public static PlayerController Instance;
 
+	[Range(0, 100), Tooltip("Amount of damage you can take before you lose")]
+	public float Health = 100;
+
 	[Range(0, 30), Tooltip("Speed Multiplier in the 'X' Direction")]
 	public float HorizSpeed;
 
