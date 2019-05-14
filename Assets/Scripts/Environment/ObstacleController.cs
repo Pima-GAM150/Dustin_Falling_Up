@@ -29,12 +29,15 @@ public class ObstacleController : MonoBehaviour
 	
 	private void Start()
 	{
+		GravityController.Instance.GravChanged.AddListener(OnGravityChange);
+
 		StartCoroutine("TimeBetweenBlockSpawns");
+		StartCoroutine("ReduceTimeBetweenBlocks", 2);
 	}
 	
-	private void Update()
+	private void OnDestroy()
 	{
-        
+		GravityController.Instance.GravChanged.RemoveListener(OnGravityChange);
 	}
 
 	#endregion
@@ -98,7 +101,7 @@ public class ObstacleController : MonoBehaviour
 	/// reset times used in spawn timer when gravity is changed
 	/// 
 	/// </summary>
-	public void OnGravitychange()
+	public void OnGravityChange( Vector3 dir)
 	{
 		TimeBetweenSpawns = resetTime;
 	}
