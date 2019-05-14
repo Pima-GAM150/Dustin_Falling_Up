@@ -1,20 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Dustin;
 
 public class GravityController : MonoBehaviour
 {
 	#region Variables
 
 	public static GravityController Instance;
-	
-	public enum GravityDirection
-	{
-		NORTH,EAST,SOUTH,WEST,
-		NORTH_EAST,NORTH_WEST,
-		SOUTH_EAST,SOUTH_WEST
-	}
 
+	public GravityChangeEvent GravChanged;
+
+	[Tooltip("Direction of movement as a Cardinal direction named value")]
 	public GravityDirection GravDir;
 
 	[Range(0,20),Tooltip("How fast the environment moves around you")]
@@ -23,8 +20,8 @@ public class GravityController : MonoBehaviour
 	[Range(0, 20), Tooltip("How fast the environment moves around you")]
 	public float DirChangeTime;
 	
-	[SerializeField,Tooltip("Direction of movement in world space as a vector")]
-	private Vector3 GravityVector;
+	[Tooltip("Direction of movement in world space as a vector")]
+	public Vector3 GravityVector;
 
 
 	#endregion
@@ -47,6 +44,8 @@ public class GravityController : MonoBehaviour
 	{
 		GravityVector = ChangeGravityDirecetion(GravDir);
 
+		GravChanged?.Invoke(GravityVector);
+
 		PlayerController.Instance.SwitchTimerStart.AddListener(StartDirChangeTimer);
 	}
 
@@ -54,6 +53,7 @@ public class GravityController : MonoBehaviour
 	{
 		PlayerController.Instance.SwitchTimerStart.RemoveListener(StartDirChangeTimer);
 	}
+
 	#endregion
 
 	#region My Functions
@@ -156,6 +156,8 @@ public class GravityController : MonoBehaviour
 		var RandNum = Random.Range(0,256);
 
 		GravityVector = ChangeGravityDirecetion(RandNum);
+
+		GravChanged?.Invoke(GravityVector);
 	}
 
 	/// <summary>
@@ -170,4 +172,21 @@ public class GravityController : MonoBehaviour
 		StartCoroutine("TimeBetweenDirChange", time);
 	}
 	#endregion
+}
+
+
+namespace UnityEngine.Dustin
+{
+	public enum GravityDirection
+	{
+		NORTH, EAST, SOUTH, WEST,
+		NORTH_EAST, NORTH_WEST,
+		SOUTH_EAST, SOUTH_WEST
+	}
+
+	[System.Serializable]
+	public class GravityChangeEvent: Events.UnityEvent<Vector3>
+	{
+		//sends the gravitation vector so all the blocks can change the flow direction
+	}
 }
