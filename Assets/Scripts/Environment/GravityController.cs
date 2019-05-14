@@ -1,19 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Dustin;
 
 public class GravityController : MonoBehaviour
 {
 	#region Variables
 
 	public static GravityController Instance;
-	
-	public enum GravityDirection
-	{
-		NORTH,EAST,SOUTH,WEST,
-		NORTH_EAST,NORTH_WEST,
-		SOUTH_EAST,SOUTH_WEST
-	}
 
 	public GravityDirection GravDir;
 
@@ -23,8 +17,8 @@ public class GravityController : MonoBehaviour
 	[Range(0, 20), Tooltip("How fast the environment moves around you")]
 	public float DirChangeTime;
 	
-	[SerializeField,Tooltip("Direction of movement in world space as a vector")]
-	private Vector3 GravityVector;
+	[Tooltip("Direction of movement in world space as a vector")]
+	public Vector3 GravityVector;
 
 
 	#endregion
@@ -170,4 +164,15 @@ public class GravityController : MonoBehaviour
 		StartCoroutine("TimeBetweenDirChange", time);
 	}
 	#endregion
+}
+
+
+namespace UnityEngine.Dustin
+{
+	public enum GravityDirection
+	{
+		NORTH, EAST, SOUTH, WEST,
+		NORTH_EAST, NORTH_WEST,
+		SOUTH_EAST, SOUTH_WEST
+	}
 }
