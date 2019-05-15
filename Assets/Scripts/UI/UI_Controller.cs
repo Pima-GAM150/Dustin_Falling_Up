@@ -25,6 +25,10 @@ public class UI_Controller : MonoBehaviour
 		SceneManager.LoadScene("Main Menu");
 	}
 
+	public void Quit()
+	{
+		Application.Quit();
+	}
 	public void Pause()
 	{
 		PlayerController.Instance.isPaused = true;
