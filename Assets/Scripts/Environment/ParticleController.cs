@@ -28,12 +28,7 @@ public class ParticleController : MonoBehaviour
 
 		StartCoroutine("RandomActivate");
 	}
-
-    
-	private void Update()
-	{
-        
-	}
+	
 	
 	#endregion
 	
@@ -51,7 +46,21 @@ public class ParticleController : MonoBehaviour
 
 	private void RandomActivator()
 	{
+		NumberON = Random.Range(0,4);
 
+		foreach (ParticleSystem ps in ParticleEffects)
+		{
+			ps.gameObject.SetActive(false);
+		}
+
+		for (int i = 0; i < NumberON; i++)
+		{
+			var index = Random.Range(0, ParticleEffects.Capacity);
+
+			ParticleEffects[index].gameObject.SetActive(true);
+
+			ParticleEffects[index].Play();
+		}
 	}
 	
 	#endregion
