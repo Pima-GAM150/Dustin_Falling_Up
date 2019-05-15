@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathCheck : MonoBehaviour
 {
@@ -11,21 +12,13 @@ public class DeathCheck : MonoBehaviour
 	#endregion
 	
 	#region Unity Functions
-	
-	private void Awake()
-	{
-		
-	}
-	
-	private void Start()
-	{
-       
-	}
-
-    
+	    
 	private void Update()
 	{
-        
+        if(PlayerController.Instance.Health<=0)
+		{
+			SceneManager.LoadScene("Fail");
+		}
 	}
 	
 	#endregion
