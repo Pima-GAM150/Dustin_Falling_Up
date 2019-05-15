@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5725523500671113640}
   - component: {fileID: 5725523500671113641}
   - component: {fileID: 5725523500671113636}
+  - component: {fileID: 2584246426685756993}
   - component: {fileID: 3962461491349003439}
   m_Layer: 0
   m_Name: Player
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 9911a7f5a9919714bafb3b34ce65ece0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,8 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  HorizSpeed: 10
-  VertSpeed: 10
+  HorizSpeed: 7
+  VertSpeed: 7
   Xdist: 10
   Ydist: 10
   AmountOfTime: 1
@@ -144,6 +145,22 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.Dustin.UnityFloatEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2584246426685756993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725523500671113646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea59fb8fc6fe64b4e923b7c055d438d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Edged: 0
+  Edge: {r: 0, g: 0, b: 0, a: 0}
+  Normal: {r: 0, g: 0.43529403, b: 0.43089625, a: 0}
+  PlayerMat: {fileID: 2100000, guid: 9911a7f5a9919714bafb3b34ce65ece0, type: 2}
 --- !u!114 &3962461491349003439
 MonoBehaviour:
   m_ObjectHideFlags: 0

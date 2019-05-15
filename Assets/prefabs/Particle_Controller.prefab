@@ -260,7 +260,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4960,7 +4960,7 @@ MonoBehaviour:
   - {fileID: 8909475308364272143}
   - {fileID: 8909475309594224163}
   NumberON: 0
-  SwitchTime: 1
+  SwitchTime: 4
 --- !u!1 &8909475308643435943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,7 +5221,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10037,7 +10037,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15035,7 +15035,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
