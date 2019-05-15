@@ -6,29 +6,9 @@ using UnityEngine.SceneManagement;
 public class UI_Controller : MonoBehaviour
 {
 	#region Variables
-	
-	
-	
-	#endregion
-	
-	#region Unity Functions
-	
-	private void Awake()
-	{
-		
-	}
-	
-	private void Start()
-	{
-       
-	}
 
-    
-	private void Update()
-	{
-        
-	}
-
+	private float currentGravitation;
+	
 	#endregion
 
 	#region My Functions
@@ -42,17 +22,23 @@ public class UI_Controller : MonoBehaviour
 
 	public void MainMenu()
 	{
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene("Main Menu");
 	}
 
 	public void Pause()
 	{
-		
+		PlayerController.Instance.isPaused = true;
+
+		currentGravitation = GravityController.Instance.Gravitation;
+
+		GravityController.Instance.Gravitation = 0;
 	}
 
 	public void Resume()
 	{
+		PlayerController.Instance.isPaused = false;
 
+		GravityController.Instance.Gravitation = currentGravitation;
 	}
 
 	#endregion

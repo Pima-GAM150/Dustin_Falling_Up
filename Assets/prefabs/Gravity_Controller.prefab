@@ -43,7 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244aa7f81b7625d4d986b7a7e079e0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravDir: 0
-  Gravitation: 2
+  GravChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Dustin.GravityChangeEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  GravDir: 2
+  Gravitation: 8
   DirChangeTime: 1
-  Target: {fileID: 0}
+  GravityVector: {x: 0, y: 0, z: 0}

@@ -26,9 +26,16 @@ public class WindController : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		if(other.gameObject.tag!="Player")
-			other.GetComponent<Rigidbody>().AddForce(WindDirection.normalized * Strength, ForceMode.Impulse);	
+		if (other.gameObject.tag != "Player" && !PlayerController.Instance.isPaused)
+		{
+			other.GetComponent<Rigidbody>().AddForce(WindDirection.normalized * Strength, ForceMode.Impulse);
+		}
+		else
+		{
+			other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		}
 	}
+
 	#endregion
 
 	#region My Functions

@@ -145,6 +145,7 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.Dustin.UnityFloatEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  isPaused: 0
 --- !u!114 &2584246426685756993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Edged: 0
-  Edge: {r: 0, g: 0, b: 0, a: 0}
+  Edge: {r: 0.754717, g: 0, b: 0, a: 0}
   Normal: {r: 0, g: 0.43529403, b: 0.43089625, a: 0}
   PlayerMat: {fileID: 2100000, guid: 9911a7f5a9919714bafb3b34ce65ece0, type: 2}
 --- !u!114 &3962461491349003439

@@ -29,11 +29,16 @@ public class ParticleController : MonoBehaviour
 		StartCoroutine("RandomActivate");
 	}
 	
-	
 	#endregion
 	
 	#region My Functions
 	
+	/// <summary>
+	/// 
+	/// sets random activation of the diff particle systems on a timer
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	private IEnumerator RandomActivate()
 	{
 		while(true)
@@ -44,6 +49,14 @@ public class ParticleController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// 
+	/// Pics a random number of particle sstems that should be turned on and 
+	/// then turns all of them off 
+	/// next will pick a random index and activate if as many times as the 
+	/// first random number of systems that should be activated 
+	/// 
+	/// </summary>
 	private void RandomActivator()
 	{
 		NumberON = Random.Range(0,4);

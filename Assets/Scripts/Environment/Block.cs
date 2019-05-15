@@ -28,7 +28,7 @@ public class Block : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.tag == "Player")
+		if(collision.gameObject.tag == "Player" && !PlayerController.Instance.isPaused)
 		{
 			PlayerController.Instance.Health -= (transform.localScale.x + transform.localScale.y) / 2f;
 		}

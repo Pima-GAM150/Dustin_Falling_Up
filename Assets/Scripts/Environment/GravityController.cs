@@ -16,9 +16,6 @@ public class GravityController : MonoBehaviour
 
 	[Range(0,20),Tooltip("How fast the environment moves around you")]
 	public float Gravitation;
-
-	[Range(0, 20), Tooltip("How fast the environment moves around you")]
-	public float DirChangeTime;
 	
 	[Tooltip("Direction of movement in world space as a vector")]
 	public Vector3 GravityVector;
@@ -136,7 +133,6 @@ public class GravityController : MonoBehaviour
 		}
 	}
 		
-		
 	/// <summary>
 	/// 
 	/// timer to set the gravity direction randomly 
@@ -171,6 +167,7 @@ public class GravityController : MonoBehaviour
 	{
 		StartCoroutine("TimeBetweenDirChange", time);
 	}
+
 	#endregion
 }
 

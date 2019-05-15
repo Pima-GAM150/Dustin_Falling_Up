@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
 
 	private Rigidbody rb;
 
+	[HideInInspector]
+	public bool isPaused = false;
+
 	#endregion
 
 	#region Unity Functions
@@ -56,15 +59,25 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		GravityChangerInput();
+		if (!isPaused)
+		{
+			GravityChangerInput();
 
-		RestrainPlayerMovement();
+			RestrainPlayerMovement();
+		}
+
+		rb.velocity = Vector3.zero;
 	}
 
 	private void FixedUpdate()
 	{
-		SetHorizontalVelocity();
-		SetVerticalVelocity();
+
+		if (!isPaused)
+		{
+			SetHorizontalVelocity();
+
+			SetVerticalVelocity();
+		}
 	}
 
 	#endregion
